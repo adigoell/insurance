@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #premiumAmount {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .explanation {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .explanation h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .explanation p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <form id="insuranceForm">
+        <h1>Insurance Premium Calculator</h1>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="coverage">Coverage Amount:</label>
+        <input type="number" id="coverage" name="coverage" required>
+
+        <button type="button" onclick="calculatePremium()">Calculate Premium</button>
+    </form>
+
+    <h2>Estimated Premium: <span id="premiumAmount"></span></h2>
+
+    <div class="explanation">
+        <h3>Functioning of the Calculator</h3>
+        <p>1. <strong>Input Collection:</strong> The calculator takes three inputs from the user: age, gender, and coverage amount.</p>
+        <p>2. <strong>Base Premium Calculation:</strong> A base premium is calculated as 5% of the coverage amount.</p>
+        <p>3. <strong>Age Adjustment:</strong> 
+            <ul>
+                <li>If the user is under 25 years old, the premium is increased by 50%.</li>
+                <li>If the user is over 60 years old, the premium is doubled.</li>
+            </ul>
+        </p>
+        <p>4. <strong>Gender Adjustment:</strong> 
+            <ul>
+                <li>If the user selects "male", the premium is increased by 10%.</li>
+                <li>If the user selects "female", the premium is increased by 5%.</li>
+            </ul>
+        </p>
+        <p>5. <strong>Premium Display:</strong> The final premium amount is calculated based on the adjustments and is displayed to the user in a visually highlighted area.</p>
+    </div>
+
+    <script src="insuranceCalculator.js"></script>
+</body>
+</html>
